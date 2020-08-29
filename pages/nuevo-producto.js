@@ -4,7 +4,7 @@ import Router, { useRouter } from 'next/router';
 import FileUploader from 'react-firebase-file-uploader';
 import Layout from '../components/layout/Layout';
 import { Formulario, Campo, InputSubmit, Error } from '../components/ui/Formulario';
-
+import Error404 from '../components/layout/404';
 import { FirebaseContext } from '../firebase';
 
 
@@ -99,6 +99,7 @@ const NuevoProducto = () => {
             guardarUrlImagen(url);
           } );
   };
+
 
   return (
     <div>
