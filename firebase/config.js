@@ -1,5 +1,5 @@
 const firebaseConfig = {
-  //añade tus propia configuracion de firebase
+ //agrega aqui tus configuraciones de firebase
 };
 
 
