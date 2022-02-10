@@ -8,7 +8,7 @@ export default function validarCrearCuenta(valores) {
 
   // validar empresa
   if (!valores.empresa) {
-    errores.empresa = "Nombre de Empresa es obligatorio";
+    errores.empresa = "Descripcion Breve es obligatorio";
   }
 
   // validar la url

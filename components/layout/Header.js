@@ -5,7 +5,7 @@ import Link from "next/link";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 import  Boton  from "../ui/Boton";
-import {firebaseContext, FirebaseContext} from '../../firebase';
+import { FirebaseContext } from '../../firebase/index';
 
 const ContenedorHeader = styled.div`
   max-width: 1200px;
@@ -42,7 +42,7 @@ const Header = () => {
             `}
           >
             <Link href="/">
-              <Logo>P</Logo>
+              <Logo>M</Logo>
             </Link>
 
             <Buscar />
@@ -83,6 +83,7 @@ const Header = () => {
             )}
           </div>
         </ContenedorHeader>
+        <center>ESCOM MARKET BETA</center>
       </header>
     );
 }

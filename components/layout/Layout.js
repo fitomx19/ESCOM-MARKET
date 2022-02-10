@@ -13,7 +13,7 @@ const Layout = props => {
               --gris: #3d3d3d;
               --gris2: #6f6f6f;
               --gris3: #e1e1e1;
-              --naranja: #da552f;
+              --naranja: #29576e;
             }
 
             html {
@@ -59,7 +59,7 @@ const Layout = props => {
         />
         <Head>
          
-          <title>Product Hunt Firebase y Next.Js</title>
+          <title>EscomMarket - Vende lo que quieras! </title>
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"

@@ -5,7 +5,7 @@ import FileUploader from 'react-firebase-file-uploader';
 import Layout from '../components/layout/Layout';
 import { Formulario, Campo, InputSubmit, Error } from '../components/ui/Formulario';
 import Error404 from '../components/layout/404';
-import { FirebaseContext } from '../firebase';
+import { FirebaseContext } from '../firebase/index';
 
 
 
@@ -17,7 +17,9 @@ const STATE_INICIAL = {
   nombre: '',
   empresa: '',
     imagen: '',
+    categoria: '',
   url: '',
+  bloque: '',
   descripcion: ''
 }
 
@@ -33,7 +35,7 @@ const NuevoProducto = () => {
 
   const { valores, errores, handleSubmit, handleChange, handleBlur } = useValidacion(STATE_INICIAL, validarCrearProducto, crearProducto);
 
-  const { nombre, empresa, imagen, url, descripcion } = valores;
+  const { nombre, empresa, bloque, imagen, url, descripcion ,categoria} = valores;
 
   // hook de routing para redireccionar
   const router = useRouter();
@@ -53,9 +55,11 @@ const NuevoProducto = () => {
         nombre, 
         empresa, 
         url, 
+        bloque,
         urlimagen,
         descripcion,
         votos: 0,
+        categoria,
         comentarios: [],
         creado: Date.now(), 
         creador: {
@@ -133,22 +137,52 @@ const NuevoProducto = () => {
                     />
                 </Campo>
 
-                {errores.nombre && <Error>{errores.nombre}</Error> }
-    
                 <Campo>
-                    <label htmlFor="empresa">Empresa</label>
+                    <label htmlFor="nombre">Des Breve/Precio</label>
                     <input 
                         type="text"
-                        id="empresa"
-                        placeholder="Nombre Empresa o Compañia"
+                        id="nombre"
+                        placeholder="Descripcion Breve"
                         name="empresa"
                         value={empresa}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />
                 </Campo>
-
                 {errores.empresa && <Error>{errores.empresa}</Error> }
+                {errores.nombre && <Error>{errores.nombre}</Error> }
+    
+                <Campo>
+                    <label htmlFor="bloque">Bloque</label>
+                    <select
+                      id="bloque"
+                      name="bloque"
+                      value={bloque}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    >   <option value="">-Selecciona Bloque-</option>
+                        <option value="Bloque A">Bloque A</option>
+                        <option value="Bloque B">Bloque B</option>
+                    </select>
+                </Campo>
+
+                <Campo>
+                    <label htmlFor="categoria">Categoria</label>
+                    <select
+                      id="categoria"
+                      name="categoria"
+                      value={categoria}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    >   <option value="">-Selecciona Categoria-</option>
+                        <option value="Comida">Comida</option>
+                        <option value="Electronica">Electronica</option>
+                        <option value="Salud">Salud</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </Campo>
+
+               
     
                 <Campo>
                     <label htmlFor="imagen">Imagen</label>
@@ -165,17 +199,19 @@ const NuevoProducto = () => {
                     />
                 </Campo>
                 <Campo>
-                    <label htmlFor="url">URL</label>
+                    <label htmlFor="url">WhatsApp/FB</label>
+                    
                     <input 
                         type="url"
                         id="url"
                         name="url"
-                        placeholder="URL de tu producto"
+                        placeholder="https://wa.me/5215543701797"
                         value={url}
                         onChange={handleChange}
                         onBlur={handleBlur}
                     />
                 </Campo>
+                <p>Ej: https://wa.me/5215548704797</p>
 
                 {errores.url && <Error>{errores.url}</Error> }
 

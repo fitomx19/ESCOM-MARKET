@@ -77,7 +77,7 @@ const TextoDescripcion = styled.p`
 `;
 
 const DetallesProducto = ({producto}) => {
-    const {id,comentarios,creado,descripcion,empresa,nombre,url,urlimagen,votos} = producto;
+    const {id,comentarios,creado,descripcion,empresa,nombre,bloque,categoria,url,urlimagen,votos} = producto;
     return (
       <Producto>
         <DescripcionProducto>
@@ -87,7 +87,10 @@ const DetallesProducto = ({producto}) => {
           <Link href="/productos/[id]" as={`/productos/${id}`}>
             <Titulo>{nombre}</Titulo>
           </Link>
-          <TextoDescripcion>{descripcion}</TextoDescripcion>
+          <TextoDescripcion>{empresa}
+          {categoria ?  <div><strong>Categoria: </strong><p>{categoria}</p></div> : null}
+          {bloque ? <div><strong>Bloque: </strong>{bloque}</div> : null}
+          </TextoDescripcion>
           <Comentarios>
             <div>
               <img src="/static/img/comentario.png" />

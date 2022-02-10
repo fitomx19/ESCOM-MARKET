@@ -9,7 +9,7 @@ import {
   Error,
 } from "../components/ui/Formulario";
 import Router from "next/router";
-import firebase from "../firebase";
+import firebase from '../firebase/index';
 
 //validaciones
 

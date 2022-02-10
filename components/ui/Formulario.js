@@ -28,6 +28,10 @@ export const Campo = styled.form`
         flex: 1;
         padding: 1rem;
     }
+    select{
+        flex: 1;
+        padding: 1rem;
+    }
 
     textarea{
         flex: 1;

@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "product-hunt-fec5f"
-  }
+    "default": "product-hunt-fec5f",
+    "market": "escommarket-39e0a"
+  },
+  "targets": {}
 }

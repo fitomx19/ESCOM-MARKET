@@ -1,6 +1,6 @@
 import React, {useEffect,useContext,useState} from 'react';
 import {useRouter} from 'next/router';
-import {firebaseContext, FirebaseContext} from '../../firebase';
+import {firebaseContext, FirebaseContext} from '../../firebase/index';
 import Error404 from "../../components/layout/404";
 import Layout from '../../components/layout/Layout';
 import {css} from '@emotion/core';
@@ -69,6 +69,7 @@ const Producto = () => {
       creado,
       descripcion,
       empresa,
+      bloque,
       nombre,
       url,
       urlimagen,
@@ -187,8 +188,9 @@ const Producto = () => {
                     {formatDistanceToNow(new Date(creado), { locale: es })}{" "}
                   </p>
                   <p>
-                    Por {creador.nombre} de {empresa}{" "}
+                  Por {creador.nombre} de {bloque?<p>{bloque}</p>:null}{" "}
                   </p>
+                  {empresa?<p>{empresa}</p>:null}
                   <img src={urlimagen} />
                   <p>{descripcion}</p>
 
